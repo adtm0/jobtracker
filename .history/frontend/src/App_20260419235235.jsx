@@ -38,7 +38,7 @@ function App() {
       <Route path='/dashboard' element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
       <Route path='/jobs' element={<PrivateRoute><Layout><Jobs /></Layout></PrivateRoute>} />
       <Route path='/jobs/new' element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
-      <Route path="/jobs/:id/edit" element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
+      
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   )
