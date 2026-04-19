@@ -27,7 +27,7 @@ export default function Navbar() {
         <span style={{ fontWeight: 600, fontSize: 16, marginRight: 20 }}>JobTrack</span>
         <NavLink to="/dashboard" style={linkStyle}>Dashboard</NavLink>
         <NavLink to="/jobs" style={linkStyle}>All Jobs</NavLink>
-        <NavLink to="/kanban" style={linkStyle}>Kanban</NavLink>
+        
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <NavLink to="/jobs/new" style={{ textDecoration: 'none' }}>

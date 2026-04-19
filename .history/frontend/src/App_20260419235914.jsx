@@ -40,7 +40,6 @@ function App() {
       <Route path='/jobs' element={<PrivateRoute><Layout><Jobs /></Layout></PrivateRoute>} />
       <Route path='/jobs/new' element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
       <Route path="/jobs/:id/edit" element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
-      <Route path="/kanban" element={<PrivateRoute><Layout><Kanban /></Layout></PrivateRoute>} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   )
