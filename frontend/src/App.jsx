@@ -3,7 +3,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Jobs from './pages/Jobs'
-import JobForm from './pages/JobFrom'
+import JobForm from './pages/JobForm'
 
 function App() {
 
