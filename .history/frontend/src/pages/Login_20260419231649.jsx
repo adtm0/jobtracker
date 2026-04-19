@@ -3,20 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
 export default function Login() {
-  const { login } = useAuth();
-  const navigate = useNavigate();
+  const { login } = useAuth()
+  const navigate = useNavigate()
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      await login(form.username, form.password);
-      navigate("/dashboard");
+      await login(form.username, form.password)
+      navigate()
     } catch {
       setError("Invalid username or password.");
     } finally {
@@ -95,7 +95,7 @@ export default function Login() {
               color: "#6b6b67",
             }}
           >
-            No account?{" "}
+            No account? {" "}
             <Link to="/register" style={{ color: "#185FA5" }}>
               Create one
             </Link>

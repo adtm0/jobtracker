@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import { useAuth } from './context/useAuth'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -16,7 +16,7 @@ function PrivateRoute({ children }) {
 function PublicRoute({ children }) {
   const { user, loading } = useAuth()
   if (loading) return null
-  return user ? <Navigate to="/dashboard" replace/> : children
+  return user ? <Navigate to="/dashboard" replace/> : 
 }
 function Layout({ children }) {
   return (
@@ -33,12 +33,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
-      <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
-      <Route path='/dashboard' element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
-      <Route path='/jobs' element={<PrivateRoute><Layout><Jobs /></Layout></PrivateRoute>} />
-      <Route path='/jobs/new' element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/dashboard' element={<Layout><Dashboard /></Layout>} />
+      <Route path='/jobs' element={<Layout><Jobs /></Layout>} />
+      <Route path='/jobs/new' element={<Layout><JobForm /></Layout>} />
     </Routes>
   )
 }

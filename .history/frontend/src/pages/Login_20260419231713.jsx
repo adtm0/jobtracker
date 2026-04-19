@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 
-export default function Register() {
-  const { register } = useAuth()
+export default function Login() {
+  const { login } = useAuth()
   const navigate = useNavigate()
-  const [form, setForm] = useState({ username: '', email: '', password: '' })
+  const [form, setForm] = useState({ username: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -15,13 +15,10 @@ export default function Register() {
     setLoading(true)
 
     try {
-      await register(form.username, form.email, form.password)
+      await login(form.username, form.password)
       navigate('/dashboard')
-    } catch (err) {
-      const data = err.response?.data
-      if (data?.username) setError(`Username: ${data.username[0]}`)
-      else if (data?.password) setError(`Password: ${data.password[0]}`)
-      else setError('Something went wrong. Try again.')
+    } catch {
+      setError('Invalid username or password.')
     } finally {
       setLoading(false)
     }
@@ -39,7 +36,7 @@ export default function Register() {
 
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600 }}>JobTrack</h1>
-          <p style={{ color: '#6b6b67', marginTop: 6 }}>Create your account</p>
+          <p style={{ color: '#6b6b67', marginTop: 6 }}>Sign in to your account</p>
         </div>
 
         <div style={{
@@ -53,7 +50,7 @@ export default function Register() {
               <label>Username</label>
               <input
                 type="text"
-                placeholder="alex_kim"
+                placeholder="your_username"
                 value={form.username}
                 onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
                 required
@@ -61,19 +58,10 @@ export default function Register() {
               />
             </div>
             <div>
-              <label>Email <span style={{ color: '#9d9d99', fontWeight: 400 }}>(optional)</span></label>
-              <input
-                type="email"
-                placeholder="alex@email.com"
-                value={form.email}
-                onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-              />
-            </div>
-            <div>
               <label>Password</label>
               <input
                 type="password"
-                placeholder="min. 8 characters"
+                placeholder="••••••••"
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 required
@@ -85,13 +73,13 @@ export default function Register() {
             )}
 
             <button type="submit" className="btn-primary" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create account'}
+              {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
 
           <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13, color: '#6b6b67' }}>
-            Already have one?{' '}
-            <Link to="/login" style={{ color: '#185FA5' }}>Sign in</Link>
+            No account?{' '}
+            <Link to="/register" style={{ color: '#185FA5' }}>Create one</Link>
           </p>
         </div>
 

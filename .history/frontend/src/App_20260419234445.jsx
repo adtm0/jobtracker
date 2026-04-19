@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import { useAuth } from './context/useAuth'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -38,7 +38,6 @@ function App() {
       <Route path='/dashboard' element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
       <Route path='/jobs' element={<PrivateRoute><Layout><Jobs /></Layout></PrivateRoute>} />
       <Route path='/jobs/new' element={<PrivateRoute><Layout><JobForm /></Layout></PrivateRoute>} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   )
 }
