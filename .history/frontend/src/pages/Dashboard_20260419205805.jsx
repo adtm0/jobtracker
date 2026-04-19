@@ -1,0 +1,23 @@
+const MOCK_STATS = {
+  total: 24,
+  applied: 11,
+  interview: 6,
+  offer: 2,
+  rejected: 5,
+  response_rate: 25,
+  offer_rate: 8,
+  follow_up_due: 3,
+  best_role: 'Frontend Engineer'
+}
+export default function Dashboard() {
+  const stats = MOCK_STATS
+
+  return (
+    <div>
+      <div style={{marginBottom: 24}}>
+        <h2 style={{fontSize: 20, fontWeight: 600}}>Dashboard</h2>
+        Your job search at a glance
+      </div>
+    </div>
+  )
+}
