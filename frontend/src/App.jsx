@@ -4,6 +4,18 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Jobs from './pages/Jobs'
 import JobForm from './pages/JobForm'
+import Navbar from './components/Navbar'
+
+function Layout({ children }) {
+  return (
+    <>
+      <Navbar />
+      <main>
+        {children}
+      </main>
+    </>
+  );
+}
 
 function App() {
 
@@ -11,9 +23,9 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='/jobs' element={<Jobs />} />
-      <Route path='/jobs/new' element={<JobForm />} />
+      <Route path='/dashboard' element={<Layout><Dashboard /></Layout>} />
+      <Route path='/jobs' element={<Layout><Jobs /></Layout>} />
+      <Route path='/jobs/new' element={<Layout><JobForm /></Layout>} />
     </Routes>
   )
 }
