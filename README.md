@@ -54,4 +54,4 @@ Built this end-to-end solo. I learned how to connect a React frontend to a Djang
 
 ---
 
-Made by [Aubrey](https://github.com/adtm0)
+Made by [A](https://github.com/adtm0)
